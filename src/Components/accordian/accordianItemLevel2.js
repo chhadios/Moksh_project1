@@ -1,31 +1,29 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+
 const AccordionItemLevel2 = ({ SNO, faq }) => {
 
   const [clicked, setClicked] = useState(false);
-
-
   const handleToggle = () => {
     setClicked((prev) => !prev);
   };
-
+ 
+ 
   return (
     <li className={`accordion_itemLevel2 ${clicked ? "active" : ""}`}>
       <button className="buttonLevel2 " onClick={handleToggle}>
-        <div style={{ width: "50%" }}>Cluster &nbsp; {SNO}
-          <p style={{ fontSize: "13px", fontStyle: "italic", fontWeight: "normal" }}>
-            Number of Phrases in the cluster: &nbsp;
-            {faq.PhraseCount} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            Phrase Rating :&nbsp;{Math.round(faq.PhraseRating * 100) / 100}
-          </p>
+        <div style={{ width: "30%", }}>{faq.text}
         </div>
-        <div style={{ width: "30%" }}>{faq.text}</div>
+        <div style={{ width: "30%" }}>Phrase Rating :&nbsp;{Math.round(faq.PhraseRating * 100) / 100}</div>
+        <div style={{ width: "30%" }}>Number of Phrases: &nbsp;
+            {faq.PhraseCount} &nbsp; &nbsp;</div>
         <span className="control">
           {clicked ? <KeyboardArrowUpOutlinedIcon /> : <KeyboardArrowDownOutlinedIcon />}
         </span>
       </button>
+      
 
       <div
         className="answer_wrapper"
@@ -43,8 +41,7 @@ const AccordionItemLevel2 = ({ SNO, faq }) => {
                   {item.text}
                 </div>
               )
-            })
-          }
+            })}
         </div>
       </div>
     </li>
