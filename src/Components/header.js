@@ -8,7 +8,7 @@ const Header = () => {
             <div className="header">
                 Product Analysis
                 <div className="Navigation_container">
-                    <div className="Navigation" onClick={()=>Navigate('/')} >
+                    <div className="Navigation" onClick={()=>Navigate('/page1')} >
                         Page1
                     </div >
                     <div className="Navigation" onClick={()=>Navigate('/page2')} >

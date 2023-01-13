@@ -1,49 +1,49 @@
 import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highstock';
-import WeeklyData from '../data';
+// import WeeklyData from '../data';
 
-const options = {
-    chart: {
-        type: 'column',
-        height:600,
-        style:{
-            backgroundColor:"black"
+
+const ReviewsBarChart = ({WeeklyData}) => {
+    const options = {
+        chart: {
+            type: 'column',
+            height:600,
+            style:{
+                backgroundColor:"black"
+            },
         },
-    },
-    title: {
-        text: 'Number Of Reviews Weekly Aggregation',
-        style: {
-            color: 'Black',
-            fontWeight: 'bold',
-            fontSize:"25px",
-            textAlign:"left",
-            marginBottom:"10px"
-        },
-    },
-    yAxis:{
-        title:{
-            text:"#Reviews",
+        title: {
+            text: 'Number Of Reviews Weekly Aggregation',
             style: {
                 color: 'Black',
                 fontWeight: 'bold',
-                fontSize:"20px"
-            }
+                fontSize:"25px",
+                textAlign:"left",
+                marginBottom:"10px"
+            },
         },
-        opposite: false
-    },
-
-    series: [{
-        name: "#Reviews",
-        data: WeeklyData.data,
-        tooltip: {
-            valueDecimals: 2
-        }
-    }],
+        yAxis:{
+            title:{
+                text:"#Reviews",
+                style: {
+                    color: 'Black',
+                    fontWeight: 'bold',
+                    fontSize:"20px"
+                }
+            },
+            opposite: false
+        },
     
-};
-
-const ReviewsBarChart = () => {
+        series: [{
+            name: "#Reviews",
+            data: WeeklyData.data,
+            tooltip: {
+                valueDecimals: 2
+            }
+        }],
+        
+    };
 
     return (
         <>
