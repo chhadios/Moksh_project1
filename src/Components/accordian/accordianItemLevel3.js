@@ -12,8 +12,8 @@ const AccordionItemLevel3 = ({ SNO, faq }) => {
  
  
   return (
-    <li className={`accordion_itemLevel2 ${clicked ? "active" : ""}`}>
-      <button className="buttonLevel2 " onClick={handleToggle}>
+    <li className={`accordion_itemLevel3 ${clicked ? "active" : ""}`}>
+      <button className="buttonLevel3 " onClick={handleToggle}>
         <div style={{ width: "30%", }}>{faq.text}
         </div>
         <div style={{ width: "30%" }}>Phrase Rating :&nbsp;{Math.round(faq.PhraseRating * 100) / 100}</div>
@@ -25,23 +25,23 @@ const AccordionItemLevel3 = ({ SNO, faq }) => {
       </button>
       
 
-      <div
-        className="answer_wrapper"
-        style={
-          clicked
-            ? {}
-            : { height: "0px" }
-        }
-      >
-        <div className="answer">
-          {
-            faq.Level4.map((item, index) => {
-              return (
-                <div className="Level3" key={index}>
-                  {item.text}
-                </div>
-              )
-            })}
+      <div className="answer_wrapper" style={clicked ? {} : { height: "0px" }}>
+        <div
+          className={`answer ${
+            faq.Level4.length > 20
+              ? "triple-columns"
+              : faq.Level4.length < 8
+              ? ""
+              : "double-columns"
+          }`}
+        >
+          {faq.Level4.map((item, index) => {
+            return (
+              <div className="Level3" key={index}>
+                {item.text}
+              </div>
+            );
+          })}
         </div>
       </div>
     </li>

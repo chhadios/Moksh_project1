@@ -13,8 +13,8 @@ const AccordionItemLevel2 = ({ SNO, faq }) => {
  
  
   return (
-    <li className={`accordion_item ${clicked ? "active" : ""}`}>
-      <button className="button" onClick={handleToggle}>
+    <li className={`accordion_itemLevel2 ${clicked ? "active" : ""}`}>
+      <button className="buttonLevel2" onClick={handleToggle}>
 
         <div style={{ width: "30%" }}>
           {faq.text}({faq.sentiments})

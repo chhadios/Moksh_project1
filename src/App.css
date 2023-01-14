@@ -82,12 +82,12 @@ body {
   list-style: none;
 }
 
-.accordion_item ,.accordion_itemLevel2{
+.accordion_item ,.accordion_itemLevel2, .accordion_itemLevel3{
   border: 1px solid #9f9f9f;
   border-radius: 5px;
 }
 
-.button {
+.button , .buttonLevel2, .buttonLevel3{
   font-size: 16px;
   background-color: white;
   /* color: #fff; */
@@ -102,10 +102,10 @@ body {
   cursor: pointer;
   border: none;
 }
-.buttonLevel2 {
+/* .buttonLevel2 {
   font-size: 16px;
   background-color: white;
-  /* color: #fff; */
+  color: #fff;
   text-align: left;
   font-weight: 700;
   display: flex;
@@ -116,7 +116,7 @@ body {
   padding: 18px 8px;
   cursor: pointer;
   border: none;
-}
+} */
 
 .control {
   font-size: 20px;
@@ -138,6 +138,10 @@ body {
   background-color: #cbf9fd;
   color: #372be6
 }
+.accordion_itemLevel3.active .buttonLevel3 {
+  background-color: #cbf9fd;
+  color: #372be6
+}
 .accordion_item.active .button {
   background-color: #cbf9fd;
   color: #372be6
@@ -145,4 +149,12 @@ body {
 .answer_wrapper {
   overflow: hidden;
   transition: height ease 0.2s;
+}
+
+.double-columns {
+  column-count: 2;
+}
+
+.triple-columns {
+  column-count: 3;
 }
