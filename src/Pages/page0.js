@@ -117,24 +117,25 @@ const Page0 = () => {
         if (e.target.files.length) {
             const inputFile = e.target.files[0];
             console.log(inputFile)
-            setProductImage(inputFile);
+            setProductImage(URL.createObjectURL(e.target.files[0]));
         }
     };
     const handleParse = () => {
 
-        const readerImage = new FileReader();
+        // const readerImage = new FileReader();
 
-        readerImage.readAsDataURL(ProductImage);
-        readerImage.onload = async ({ target }) => {
-            ProductSpecs.ProductImage=target.result;
-            Product.ProductName=ProductName
+        // readerImage.readAsDataURL(ProductImage);
+        // readerImage.onload = async ({ target }) => {
+        //     console.log(target.result)
+            ProductSpecs.ProductImage=ProductImage;
+            Product.ProductName=ProductName;
             Product.ProductNumberOfReviews=ProductNumberOfReviews
             Product.ProductRating=ProductRating
             ProductSpecs.ProductDetails=ProductDetails
             ProductSpecs.KeyIngridiants=KeyIngridiants
             localStorage.setItem('ProductDetails', JSON.stringify(Product))
             localStorage.setItem('ProductSpecs', JSON.stringify(ProductSpecs))
-        }
+        // }
 
         const reader = new FileReader();
 
@@ -263,11 +264,11 @@ const Page0 = () => {
                     <label  className="form-label">
                         Product Name
                     </label>
-                    <input type="text" className="form-input" onChange={(e)=> setKeyIngridiants(e.target.value)}></input>
+                    <input type="text" className="form-input" onChange={(e)=> setProductName(e.target.value)}></input>
                     <label  className="form-label">
                         Key Ingridiants
                     </label>
-                    <input type="text" className="form-input" onChange={(e)=> setProductName(e.target.value)}></input>
+                    <input type="text" className="form-input" onChange={(e)=> setKeyIngridiants(e.target.value)}></input>
                     <label className="form-label">
                         Rating out of five
                     </label>
