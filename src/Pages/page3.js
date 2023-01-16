@@ -3,17 +3,17 @@ import Accordion from '../Components/accordian/accordian';
 import Header from '../Components/header';
 function Page3() {
   const W=JSON.parse(localStorage.getItem('DetailedData'))
-  console.log(W)
+  const P=JSON.parse(localStorage.getItem('ProductDetails'))
   return (
     <>
       <Header />
       {W ?
        <div className="App">
        <div className="Main_header">
-         Short Text Analysis
+         Review Level
        </div>
        <div className="Sub_header">
-         Lifelong LLM99 Foot,Calf and Leg Massager,(With Heat and Vibration),80W,$ Motors,Dark Brown
+         {P.ProductName}
        </div>
        <div className="App_container">
          

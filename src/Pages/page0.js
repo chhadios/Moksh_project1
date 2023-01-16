@@ -23,11 +23,17 @@ const Page0 = () => {
     const [ProductName, setProductName] = useState("Product");
     const [ProductRating, setProductRating] = useState();
     const [ProductNumberOfReviews, setProductNumberOfReviews] = useState();
+    const [ProductDetails, setProductDetails] = useState("");
+    const [KeyIngridiants, setKeyIngridiants] = useState("");
     const [Product, setProduct] = useState({
         ProductName:"",
         ProductRating:0,
         ProductNumberOfReviews:0,
-        ProductImage:""
+    });
+    const [ProductSpecs, setProductSpecs] = useState({
+        ProductImage:"",
+        ProductDetails:"",
+        KeyIngridiants:""
     });
 
     function convertToTimestamp(date) {
@@ -120,11 +126,14 @@ const Page0 = () => {
 
         readerImage.readAsDataURL(ProductImage);
         readerImage.onload = async ({ target }) => {
-            Product.ProductImage=target.result;
+            ProductSpecs.ProductImage=target.result;
             Product.ProductName=ProductName
             Product.ProductNumberOfReviews=ProductNumberOfReviews
             Product.ProductRating=ProductRating
+            ProductSpecs.ProductDetails=ProductDetails
+            ProductSpecs.KeyIngridiants=KeyIngridiants
             localStorage.setItem('ProductDetails', JSON.stringify(Product))
+            localStorage.setItem('ProductSpecs', JSON.stringify(ProductSpecs))
         }
 
         const reader = new FileReader();
@@ -254,6 +263,10 @@ const Page0 = () => {
                     <label  className="form-label">
                         Product Name
                     </label>
+                    <input type="text" className="form-input" onChange={(e)=> setKeyIngridiants(e.target.value)}></input>
+                    <label  className="form-label">
+                        Key Ingridiants
+                    </label>
                     <input type="text" className="form-input" onChange={(e)=> setProductName(e.target.value)}></input>
                     <label className="form-label">
                         Rating out of five
@@ -271,7 +284,7 @@ const Page0 = () => {
                     </label>
                     <input
                     onChange={handleImageChange}
-                    type="file" style={{marginBottom:"40px"}}></input>
+                    type="file" style={{marginBottom:"30px"}}></input>
 
                     <label htmlFor="csvInput" className="form-label">
                         Enter Graph Weekly CSV File
@@ -281,7 +294,7 @@ const Page0 = () => {
                         id="csvInput"
                         name="file"
                         type="File"
-                        style={{cursor: "pointer", marginBottom:"40px" }}
+                        style={{cursor: "pointer", marginBottom:"30px" }}
                     />
                     <label htmlFor="csvInput" className="form-label">
                         Enter Detailed analysis CSV File
@@ -291,8 +304,12 @@ const Page0 = () => {
                         id="csvInput"
                         name="file"
                         type="File"
-                        style={{cursor: "pointer",marginBottom:"40px"  }}
+                        style={{cursor: "pointer",marginBottom:"30px"  }}
                     />
+                     <label  className="form-label">
+                        Product Details
+                    </label>
+                    <input type="text" className="form-input" onChange={(e)=> setProductDetails(e.target.value)}></input>
                     <button onClick={handleParse} style={{ }} className='form-button'>Get Data</button>
 
                 </div>

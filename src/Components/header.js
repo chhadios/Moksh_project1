@@ -7,7 +7,9 @@ import Sephora from "../assets/images/sephora.png";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
     const Product=JSON.parse(localStorage.getItem('ProductDetails'));
+    const ProductSpecs=JSON.parse(localStorage.getItem('ProductSpecs'));
     console.log(Product);
+    console.log(ProductSpecs);
     const [location,setLocation]=useState(1);
     const l=window.location.pathname;
     const navigate= new useNavigate();
@@ -17,10 +19,10 @@ const Header = () => {
                 <div className="product-container">
                     <div className="product">
                         <div className="product_image_container">
-                            <img src={Product.ProductImage} alt="product" className="product-img" />
+                            <img src={ProductSpecs.ProductImage} alt="product" className="product-img" />
                         </div>
                         <div className="product-details">
-                            <h3>{Product.ProductName}: Double Wear Stay-in-Place Foundation</h3>
+                            <h3>{Product.ProductName}: {ProductSpecs.ProductDetails}</h3>
                             <p>
                                 <Rating
                                     allowHover={false}
@@ -40,7 +42,7 @@ const Header = () => {
                                 </div>
                             </div>
                             <div>
-                                Key Ingredient:
+                                Key Ingredient: &nbsp; {ProductSpecs.KeyIngridiants}
                                 <p className="Ingredients-link">View all ingredients</p>
                             </div>
                         </div>
