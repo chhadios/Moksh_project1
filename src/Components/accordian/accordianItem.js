@@ -21,7 +21,7 @@ const AccordionItem = ({ faq }) => {
       <button className="button" onClick={handleToggle}>
 
         <div style={{ width: "30%" }}>
-          {faq.text}({faq.sentiments})
+          {faq.text}
           <p style={{ fontSize: "13px", fontStyle: "italic", fontWeight: "normal" }}>
             Any end user description Mentioned in the Reviews
           </p>
