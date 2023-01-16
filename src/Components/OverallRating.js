@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 
 const Data=JSON.parse(localStorage.getItem('RawData'))
-var OverallData=[{}];
+var OverallData=[];
 const setData=()=>{
   for(var i =0;i<Data.length-1;i++){
     var index = OverallData.findIndex(x => x.id === Data[i].L1ClusterID);
