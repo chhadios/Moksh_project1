@@ -17,7 +17,7 @@ const Header = () => {
                 <div className="product-container">
                     <div className="product">
                         <div className="product_image_container">
-                            <img src={Foundation} alt="product" className="product-img" />
+                            <img src={Product.ProductImage} alt="product" className="product-img" />
                         </div>
                         <div className="product-details">
                             <h3>{Product.ProductName}: Double Wear Stay-in-Place Foundation</h3>
