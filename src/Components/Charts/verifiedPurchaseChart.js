@@ -5,35 +5,23 @@ import Highcharts from 'highcharts';
 const VerifiedPurchasesChart = ({Data}) => {
     const options = {
         chart: {
-            type: 'column',
-            height:500
+            type: 'column'
         },
         title: {
-            text: 'Verified VS Not Verified',
-                style: {
-                color: 'Black',
+            text: 'Verified Chart',
+            style: {
+                color: 'black',
                 fontWeight: 'bold',
-                fontSize:"25px",
-                textAlign:"left",
-                marginBottom:"10px"
-            },
+                fontSize:"20px"
+            }
         },
         xAxis: {
-            categories: Data.rating,
-            crosshair: true,
-            title: {
-                text: "Ratings",
-                style: {
-                    color: 'black',
-                    fontWeight: 'bold',
-                    fontSize:"20px"
-                }
-            }
+            categories: ['Verified', 'Not Verified']
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Percent Verified and Not Verified',
+                text: '%Ratings',
                 style: {
                     color: 'Black',
                     fontWeight: 'bold',
@@ -42,27 +30,29 @@ const VerifiedPurchasesChart = ({Data}) => {
             }
         },
         tooltip: {
-            headerFormat: '<span style="font-size:10px"></span>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{point.y:.1f}% </td>' +
-                '<td style="padding:0"><b>{series.name}, &nbsp;</td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+            shared: true
         },
         plotOptions: {
             column: {
-                pointPadding: 0.2,
-                borderWidth: 0
+                stacking: 'percent'
             }
         },
         series: [{
-            name: 'Verified',
-            data: Data.verified
-    
+            name: '5',
+            data: [Data.verified.five,Data.notVerified.five]
         }, {
-            name: 'Not Verified',
-            data: Data.notVerified
-    
+            name: '4',
+            data: [Data.verified.four, Data.notVerified.four]
+        },{
+            name: '3',
+            data: [Data.verified.three,Data.notVerified.three]
+        }, {
+            name: '2',
+            data: [Data.verified.two, Data.notVerified.two]
+        }, {
+            name: '1',
+            data: [Data.verified.one, Data.notVerified.one]
         }]
         
     };

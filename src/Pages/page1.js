@@ -29,20 +29,41 @@ const Page1 = () => {
     }
 
     // Incentivised Chart Data
-    const IncentivisedChart = []
-    const FinalIncentivisedChart = {
-        rating: [],
-        incentivized: [],
-        notIncentivized: []
+    const IncentivisedChart = {
+        incentivised:{
+            five:0,
+            four:0,
+            three:0,
+            two:0,
+            one:0
+        },
+        notIncentivized:{
+            five:0,
+            four:0,
+            three:0,
+            two:0,
+            one:0
+        }
     }
 
     // Verified Purchase Chart Data
-    const VerifiedPurchaseChart = []
-    const FinalVerifiedPurchaseChart = {
-        rating: [],
-        verified: [],
-        notVerified: []
+    const VerifiedPurchaseChart = {
+        verified:{
+            five:0,
+            four:0,
+            three:0,
+            two:0,
+            one:0
+        },
+        notVerified:{
+            five:0,
+            four:0,
+            three:0,
+            two:0,
+            one:0
+        }
     }
+
     // Pie Chart data
     var AgePiechartData = {
         positive: 0,
@@ -171,67 +192,41 @@ const Page1 = () => {
 
         // Incentivised Chart Data
         for (var i = 0; i < RawData.length - 1; i++) {
-            if (RawData[i].Incentivized != "Yes") {
+            if (RawData[i].Incentivized == "Yes") {
                 IncentivizedPieChartData.positive++;
+
+                RawData[i].ReviewRating=="5"?IncentivisedChart.incentivised.five++:RawData[i].ReviewRating=="4"?
+                IncentivisedChart.incentivised.four++:RawData[i].ReviewRating=="3"?
+                IncentivisedChart.incentivised.three++:RawData[i].ReviewRating=="2"?
+                IncentivisedChart.incentivised.two++:IncentivisedChart.incentivised.one++
             } else {
                 IncentivizedPieChartData.negetive++;
+
+                RawData[i].ReviewRating=="5"?IncentivisedChart.notIncentivized.five++:RawData[i].ReviewRating=="4"?
+                IncentivisedChart.notIncentivized.four++:RawData[i].ReviewRating=="3"?
+                IncentivisedChart.notIncentivized.three++:RawData[i].ReviewRating=="2"?
+                IncentivisedChart.notIncentivized.two++:IncentivisedChart.notIncentivized.one++
             }
-            var idx = IncentivisedChart.findIndex(x => x.rating === RawData[i].ReviewRating);
-            if (idx > -1) {
-                RawData[i].Incentivized === 'Yes' ? IncentivisedChart[idx].incentivised++ : IncentivisedChart[idx].notIncentivised++
-            } else {
-                IncentivisedChart.push({
-                    rating: RawData[i].ReviewRating,
-                    incentivised: RawData[i].Incentivized === 'Yes' ? 1 : 0,
-                    notIncentivised: RawData[i].Incentivized === 'No' ? 1 : 0
-                })
-            }
-
+            
         }
-
-        //Adding Data in final State
-        IncentivisedChart.sort((a, b) => {
-            return b.rating - a.rating;
-        });
-
-        for (var i = 0; i < IncentivisedChart.length; i++) {
-
-            var percentIncent = (IncentivisedChart[i].incentivised * 100) / (IncentivisedChart[i].incentivised + IncentivisedChart[i].notIncentivised)
-            FinalIncentivisedChart.rating.push(IncentivisedChart[i].rating)
-            FinalIncentivisedChart.incentivized.push(percentIncent)
-            FinalIncentivisedChart.notIncentivized.push(100 - percentIncent)
-        }
-
+        
         // Verified Purchase Chart Data
         for (var i = 0; i < RawData.length - 1; i++) {
-            if (RawData[i].VerifiedPurchase != "Yes") {
+            if (RawData[i].VerifiedPurchase == "Yes") {
                 VerifiedPieChartData.positive++;
+
+                RawData[i].ReviewRating=="5"?VerifiedPurchaseChart.verified.five++:RawData[i].ReviewRating=="4"?
+                VerifiedPurchaseChart.verified.four++:RawData[i].ReviewRating=="3"?
+                VerifiedPurchaseChart.verified.three++:RawData[i].ReviewRating=="2"?
+                VerifiedPurchaseChart.verified.two++:VerifiedPurchaseChart.verified.one++
             } else {
                 VerifiedPieChartData.negetive++;
-            }
-            var idx = VerifiedPurchaseChart.findIndex(x => x.rating === RawData[i].ReviewRating);
-            if (idx > -1) {
-                RawData[i].VerifiedPurchase === 'Yes' ? VerifiedPurchaseChart[idx].verified++ : VerifiedPurchaseChart[idx].notVerified++
-            } else {
-                VerifiedPurchaseChart.push({
-                    rating: RawData[i].ReviewRating,
-                    verified: RawData[i].VerifiedPurchase === 'Yes' ? 1 : 0,
-                    notVerified: RawData[i].VerifiedPurchase === 'No' ? 1 : 0
-                })
+                RawData[i].ReviewRating=="5"?VerifiedPurchaseChart.notVerified.five++:RawData[i].ReviewRating=="4"?
+                VerifiedPurchaseChart.notVerified.four++:RawData[i].ReviewRating=="3"?
+                VerifiedPurchaseChart.notVerified.three++:RawData[i].ReviewRating=="2"?
+                VerifiedPurchaseChart.notVerified.two++:VerifiedPurchaseChart.notVerified.one++
             }
 
-        }
-
-        //Adding Data in final State
-        VerifiedPurchaseChart.sort((a, b) => {
-            return b.rating - a.rating;
-        });
-
-        for (var i = 0; i < VerifiedPurchaseChart.length; i++) {
-            var percentIncent = (VerifiedPurchaseChart[i].verified * 100) / (VerifiedPurchaseChart[i].verified + VerifiedPurchaseChart[i].notVerified)
-            FinalVerifiedPurchaseChart.rating.push(VerifiedPurchaseChart[i].rating)
-            FinalVerifiedPurchaseChart.verified.push(percentIncent)
-            FinalVerifiedPurchaseChart.notVerified.push(100 - percentIncent)
         }
 
     }
@@ -255,8 +250,8 @@ const Page1 = () => {
                     </div>
                     <ConcernsChart Data={FinalConcernChart} />
                     <AgeRangeChart Data={FinalAgeChart} />
-                    <IncentivizedChart Data={FinalIncentivisedChart} />
-                    <VerifiedPurchasesChart Data={FinalVerifiedPurchaseChart} />
+                    <IncentivizedChart Data={IncentivisedChart} />
+                    <VerifiedPurchasesChart Data={VerifiedPurchaseChart} />
                 </div>
                 : <></>}
         </>

@@ -5,35 +5,23 @@ import Highcharts from 'highcharts';
 const IncentivizedChart = ({Data}) => {
     const options = {
         chart: {
-            type: 'column',
-            height:500
+            type: 'column'
         },
         title: {
-            text: 'Incentivized VS Non Incentivized',
+            text: 'Incentivized Chart',
             style: {
-                color: 'Black',
+                color: 'black',
                 fontWeight: 'bold',
-                fontSize:"25px",
-                textAlign:"left",
-                marginBottom:"10px"
-            },
+                fontSize:"20px"
+            }
         },
         xAxis: {
-            categories: Data.rating,
-            crosshair: true,
-            title: {
-                text: "Ratings",
-                style: {
-                    color: 'black',
-                    fontWeight: 'bold',
-                    fontSize:"20px"
-                }
-            }
+            categories: ['Incentivized', 'Not Incentivised']
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Percent Incentivized and Non Incentivised',
+                text: '%Ratings',
                 style: {
                     color: 'Black',
                     fontWeight: 'bold',
@@ -42,27 +30,29 @@ const IncentivizedChart = ({Data}) => {
             }
         },
         tooltip: {
-            headerFormat: '<span style="font-size:10px"></span>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{point.y:.1f}% </td>' +
-                '<td style="padding:0"><b>{series.name}, &nbsp;</td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+            shared: true
         },
         plotOptions: {
             column: {
-                pointPadding: 0.2,
-                borderWidth: 0
+                stacking: 'percent'
             }
         },
         series: [{
-            name: 'Incentivized',
-            data: Data.incentivized
-    
+            name: '5',
+            data: [Data.incentivised.five,Data.notIncentivized.five]
         }, {
-            name: 'Non Incentivized',
-            data: Data.notIncentivized
-    
+            name: '4',
+            data: [Data.incentivised.four, Data.notIncentivized.four]
+        },{
+            name: '3',
+            data: [Data.incentivised.three,Data.notIncentivized.three]
+        }, {
+            name: '2',
+            data: [Data.incentivised.two, Data.notIncentivized.two]
+        }, {
+            name: '1',
+            data: [Data.incentivised.one, Data.notIncentivized.one]
         }]
         
     };
