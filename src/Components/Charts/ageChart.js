@@ -2,8 +2,7 @@ import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
-const ConcernsChart = ({Data}) => {
-    console.log(Data)
+const AgeRangeChart = ({Data}) => {
     const options = {
         chart: {
             type: 'bar',
@@ -11,7 +10,7 @@ const ConcernsChart = ({Data}) => {
 
         },
         title: {
-            text: 'Reviews based on Skin Concern',
+            text: 'Reviews based on Age Range',
             align: 'center',
             style: {
                 color: 'Black',
@@ -21,10 +20,10 @@ const ConcernsChart = ({Data}) => {
         },
 
         xAxis: [{
-            categories: Data.name,
+            categories: Data.AgeRange,
             reversed: false,
             title: {
-                text: "Skin Concerns",
+                text: "Age Range",
                 style: {
                     color: 'black',
                     fontWeight: 'bold',
@@ -40,7 +39,7 @@ const ConcernsChart = ({Data}) => {
         }, { // mirror axis on right side
             opposite: true,
             reversed: false,
-            categories: Data.name,
+            categories: Data.AgeRange,
             linkedTo: 0,
             labels: {
                 step: 1
@@ -104,4 +103,4 @@ const ConcernsChart = ({Data}) => {
     )
 }
 
-export default ConcernsChart
+export default AgeRangeChart

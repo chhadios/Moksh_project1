@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from "react";
 
 const OverallRating = ({OverallData}) => {
-  console.log(OverallData)
   return (
     <div className="table-cont">
       <h1>Overall Category Ratings</h1>

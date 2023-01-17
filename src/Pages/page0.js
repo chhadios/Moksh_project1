@@ -100,7 +100,6 @@ const Page0 = () => {
 
         if (e.target.files.length) {
             const inputFile = e.target.files[0];
-            console.log(inputFile)
             setFile(inputFile);
         }
     };
@@ -108,7 +107,6 @@ const Page0 = () => {
 
         if (e.target.files.length) {
             const inputFile = e.target.files[0];
-            console.log(inputFile)
             setDetailedFile(inputFile);
         }
     };
@@ -116,17 +114,11 @@ const Page0 = () => {
 
         if (e.target.files.length) {
             const inputFile = e.target.files[0];
-            console.log(inputFile)
             setProductImage(URL.createObjectURL(e.target.files[0]));
         }
     };
     const handleParse = () => {
 
-        // const readerImage = new FileReader();
-
-        // readerImage.readAsDataURL(ProductImage);
-        // readerImage.onload = async ({ target }) => {
-        //     console.log(target.result)
             ProductSpecs.ProductImage=ProductImage;
             Product.ProductName=ProductName;
             Product.ProductNumberOfReviews=ProductNumberOfReviews
@@ -143,7 +135,6 @@ const Page0 = () => {
         reader.onload = async ({ target }) => {
             const csv = Papa.parse(target.result, { header: true });
             const parsedData = csv?.data;
-            console.log(parsedData);
 
             for (var i = parsedData.length - 2; i > 0; i--) {
                 WeeklyData.data.push([convertToTimestamp(parsedData[i].week_of), parseInt(parsedData[i].reviews)]);
@@ -161,7 +152,6 @@ const Page0 = () => {
             const csv = Papa.parse(target.result, { header: true });
             const parsedData = csv?.data;
             localStorage.setItem('RawData', JSON.stringify(parsedData))
-            console.log(parsedData);
             for (var i = 1; i < parsedData.length - 1; i++) {
                 var firstIndex = Level1.findIndex(x => x.id === parsedData[i].L1ClusterID);
                 if (firstIndex > -1) {
@@ -247,8 +237,7 @@ const Page0 = () => {
                 }
 
             }
-            console.log(WeeklyData)
-            console.log(Level1)
+
             localStorage.setItem('WeeklyData', JSON.stringify(WeeklyData))
             localStorage.setItem('DetailedData', JSON.stringify(Level1))
             navigate('/page1')

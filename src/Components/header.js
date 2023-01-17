@@ -1,6 +1,6 @@
 import React,{useState} from "react";
-import ReviewsBarChart from "../Components/barGraph_Reviews";
-import LineChartRatings from "../Components/LineChartRatings";
+import ReviewsBarChart from "./Charts/barGraph_Reviews";
+import LineChartRatings from "./Charts/LineChartRatings";
 import Foundation from "../assets/images/foundation.jpg";
 import { Rating } from "react-simple-star-rating";
 import Sephora from "../assets/images/sephora.png";
@@ -8,8 +8,6 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
     const Product=JSON.parse(localStorage.getItem('ProductDetails'));
     const ProductSpecs=JSON.parse(localStorage.getItem('ProductSpecs'));
-    console.log(Product);
-    console.log(ProductSpecs);
     const [location,setLocation]=useState(1);
     const l=window.location.pathname;
     const navigate= new useNavigate();
