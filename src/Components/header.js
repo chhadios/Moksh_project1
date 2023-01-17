@@ -51,7 +51,7 @@ const Header = () => {
                 </div>
                 <div className={`nav-cont `}>
                     <span className={`nav-elem-1 ${l==='/page1' ? "active" : ""}`}  onClick={()=>navigate("/page1")} >Overview</span>
-                    <span className={`nav-elem-2 ${l==='/page2' ? "active" : ""}`}  onClick={()=>navigate("/page2")}>Short text analysis</span>
+                    <span className={`nav-elem-2 ${l==='/page2' ? "active" : ""}`}  onClick={()=>navigate("/page2")}>Key Concerns</span>
                     <span className={`nav-elem-3 ${l==='/page3' ? "active" : ""}`}  onClick={()=>navigate("/page3")}>Review level</span>
                 </div>
             </div>

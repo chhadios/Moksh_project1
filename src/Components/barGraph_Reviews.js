@@ -5,6 +5,7 @@ import Highcharts from 'highcharts/highstock';
 
 
 const ReviewsBarChart = ({WeeklyData}) => {
+    console.log(WeeklyData)
     const options = {
         chart: {
             type: 'column',
