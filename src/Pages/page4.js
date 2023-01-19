@@ -1,15 +1,15 @@
-import React from 'react';
-import Header from '../Components/header';
-import PivotChart from '../Components/pivotChart';
-function Page4() {
+// import React from 'react';
+// import Header from '../Components/header';
+// import PivotChart from '../Components/pivotChart';
+// function Page4() {
 
-    return (
-        <>
-            <Header />
-            <PivotChart />
+//     return (
+//         <>
+//             <Header />
+//             <PivotChart />
 
-        </>
-    );
-}
+//         </>
+//     );
+// }
 
-export default Page4;
+// export default Page4;
