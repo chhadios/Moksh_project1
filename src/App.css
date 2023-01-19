@@ -101,7 +101,7 @@ body {
   border-bottom: 1px solid grey;
 }
 
-/* activate toggle */
+
 .accordion_itemLevel2.active .buttonLevel2 {
   background-color: #cbf9fd;
   color: #372be6
@@ -225,7 +225,7 @@ body {
   flex-direction: column;
 }
 
-table {
+.table-container {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 70%;
@@ -247,7 +247,6 @@ th {
   margin-left: 25%;
   margin-top: 200px;
   font-size: large;
-  /* border: 2px solid grey; */
   padding: 20px;
   width: 50%
 }
@@ -270,4 +269,8 @@ th {
   border-radius: 5px;
   margin-bottom: 15px;
   font-size: large;
+}
+.PivotChart{
+  font-size: large;
+
 }

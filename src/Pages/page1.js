@@ -7,7 +7,7 @@ import AgeRangeChart from '../Components/Charts/ageChart';
 import IncentivizedChart from '../Components/Charts/IncentiviseChart';
 import VerifiedPurchasesChart from '../Components/Charts/verifiedPurchaseChart';
 import PieChart from '../Components/Charts/pieChart';
-
+import PivotChart from '../Components/pivotChart';
 const Page1 = () => {
     const W = JSON.parse(localStorage.getItem('WeeklyData'))
     const RawData = JSON.parse(localStorage.getItem('RawData'));
@@ -252,6 +252,10 @@ const Page1 = () => {
                     <AgeRangeChart Data={FinalAgeChart} />
                     <IncentivizedChart Data={IncentivisedChart} />
                     <VerifiedPurchasesChart Data={VerifiedPurchaseChart} />
+                    <div style={{width:"100%",border:"4px solid blue",overflow:"auto"}}>
+
+                    <PivotChart />
+                    </div>
                 </div>
                 : <></>}
         </>

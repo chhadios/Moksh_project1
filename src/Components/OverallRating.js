@@ -4,7 +4,7 @@ const OverallRating = ({OverallData}) => {
   return (
     <div className="table-cont">
       <h1>Overall Category Ratings</h1>
-      <table>
+      <table className="table-container">
         <thead>
           <tr>
             <th>Sentiment</th>

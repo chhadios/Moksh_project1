@@ -5,7 +5,7 @@ const PositiveRatingTable = ({FinalData}) => {
   return (
     <div className="table-cont">
       <h1>Top Positive Rating Drivers</h1>
-      <table>
+      <table className="table-container">
         <thead>
           <tr>
             <th>Overall category</th>

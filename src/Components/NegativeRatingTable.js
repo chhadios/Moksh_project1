@@ -8,7 +8,7 @@ const NegativeRatingTable = ({FinalData}) => {
   return (
     <div className="table-cont">
       <h1>Top Negative Rating Drivers</h1>
-      <table>
+      <table className="table-container">
         <thead>
           <tr>
             <th>Overall category</th>
